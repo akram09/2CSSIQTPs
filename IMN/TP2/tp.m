@@ -103,7 +103,7 @@ subplot(5, 3, 10);
 imshow(image_filtered_accentuator);
 axis('image');
 axis on;
-title("filtre passe haut avec FIltre Accentuateur ");
+title(" FIltre Accentuateur ");
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  Fourrier Transformation of the image %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -127,30 +127,22 @@ title("Image de l'argument");
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 image = imread("/home/akram09/Projects/StudyProjects/2CSSIQTPs/IMN/TP2/trui.png");
 fourrier_transf_trui = fft2(image);
-% show  modulus image
-% affichage du module
-subplot(5, 3, 13);
-imshow(log(1 + fftshift(abs(fourrier_transf_trui))), []);
-axis('image');
-axis on;
-title('image du module ');
-
-% affichage de l'argument
-subplot(5, 3, 14);
-imshow(angle(fftshift(fourrier_transf_trui)), []);
-axis('image');
-axis on;
-title("Image de l'argument");
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  Trouvons une nouvelle image 3 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Img3Module = abs(fourrier_transf);
-Img3Arg = angle(fourrier_transf_trui);
-TfImg3 = Img3Module .* exp(1i * Img3Arg);
-img3 = ifft2(TfImg3);
+img3_modulus = abs(fourrier_transf);
+img3_arg = angle(fourrier_transf_trui);
+fourier_img3 = img3_modulus .* exp(1i * img3_arg);
+img3 = ifft2(fourier_img3);
 
-subplot(5, 3, 15);
+subplot(5, 3, 13);
 imshow(img3, []);
 axis('image');
 axis on;
 title('La nouvelle Image 3');
+
+subplot(5, 3, 14);
+imshow(image, []);
+axis('image');
+axis on;
+title("L'image du trui");
