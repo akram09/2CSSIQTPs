@@ -1,23 +1,33 @@
 package com.neutrix.videolibrary;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 
-public class Main extends Application {
+import com.neutrix.videolibrary.base.BlockingQueue;
+import com.neutrix.videolibrary.base.Filter;
+import com.neutrix.videolibrary.base.Pipe;
+import com.neutrix.videolibrary.filters.QueryProcessorFilter;
+import com.neutrix.videolibrary.filters.TransactionProcessorFilter;
+import com.neutrix.videolibrary.filters.gui.GuiFilter;
 
-    @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.show();
-    }
-
-
+/**
+ * Main Entry point for our system
+ * - This Java File will launch all the filters and set up pipes
+ */
+public class Main {
     public static void main(String[] args) {
-        launch(args);
+        Pipe p1 = new BlockingQueue();
+        Pipe p2 = new BlockingQueue();
+        Pipe p3 = new BlockingQueue();
+
+        Filter a1 = new GuiFilter(p3, p1);
+        Filter b1 = new QueryProcessorFilter(p1, p2);
+        Filter c1 = new TransactionProcessorFilter(p2, p3);
+
+        Thread th1 = new Thread(a1);
+        Thread th2 = new Thread(b1);
+        Thread th3 = new Thread(c1);
+
+        th1.start();
+        th2.start();
+        th3.start();
     }
 }

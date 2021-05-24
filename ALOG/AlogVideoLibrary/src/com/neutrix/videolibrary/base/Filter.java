@@ -2,8 +2,8 @@ package com.neutrix.videolibrary.base;
 
 public abstract class Filter  implements Runnable{
 
-    Pipe _dataINPipe;
-    Pipe _dataOUTPipe;
+    public Pipe _dataINPipe;
+    public Pipe _dataOUTPipe;
 
     public String getData(){
         return _dataINPipe.dataOUT();
@@ -12,5 +12,5 @@ public abstract class Filter  implements Runnable{
     public void sendData( String tempData){
         _dataOUTPipe.dataIN(tempData);
     }
-    abstract void execute();
+    public abstract void execute();
 }

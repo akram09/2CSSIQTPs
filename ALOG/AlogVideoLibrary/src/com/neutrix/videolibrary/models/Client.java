@@ -3,12 +3,12 @@ package com.neutrix.videolibrary.models;
 import java.util.Objects;
 import java.util.UUID;
 
-public class Client {
+public class Client extends Model {
     private String customerId;
     private String name;
-    private int accountBalance;
+    private float accountBalance;
 
-    public Client(String name, int accountBalance) {
+    public Client(String name, float accountBalance) {
         this.name = name;
         this.accountBalance = accountBalance;
         this.customerId = UUID.randomUUID().toString();
@@ -43,11 +43,16 @@ public class Client {
         this.name = name;
     }
 
-    public int getAccountBalance() {
+    public float getAccountBalance() {
         return accountBalance;
     }
 
-    public void setAccountBalance(int accountBalance) {
+    public void setAccountBalance(float accountBalance) {
         this.accountBalance = accountBalance;
+    }
+
+    @Override
+    public Model parseFromArgs(String[] args) {
+        return new Client(args[0], Float.parseFloat(args[1]));
     }
 }

@@ -6,7 +6,7 @@ public class Film extends StockItem{
 
     private String acteur ;
 
-    public Film(float rentalPrice, String title, int itemId, String acteur) {
+    public Film(float rentalPrice, String title, String itemId, String acteur) {
         super(rentalPrice, title, itemId);
         this.acteur = acteur;
     }

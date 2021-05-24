@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Jeux  extends StockItem{
     private String platform ;
 
-    public Jeux(float rentalPrice, String title, int itemId, String platform) {
+    public Jeux(float rentalPrice, String title, String itemId, String platform) {
         super(rentalPrice, title, itemId);
         this.platform = platform;
     }

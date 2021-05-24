@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="309.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.neutrix.videolibrary.filters.gui.GuiController">
+   <children>
+      <VBox>
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="38.0" prefWidth="600.0" text="Gestion VideoThéque" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label prefHeight="38.0" prefWidth="600.0" text="Ajouter client">
+            </Label>
+            <HBox prefHeight="29.0" prefWidth="558.0">
+               <children>
+                  <Label text="name" />
+                  <TextField fx:id="clientName" />
+                  <Label text="Balance" />
+                  <TextField fx:id="clientBalance" />
+                  <Button mnemonicParsing="false" text="Ajouter" fx:id="ajouterClient" />
+               </children>
+            </HBox>
+
+
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
