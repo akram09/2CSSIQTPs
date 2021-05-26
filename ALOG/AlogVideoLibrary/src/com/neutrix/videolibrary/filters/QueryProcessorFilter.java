@@ -31,6 +31,18 @@ public class QueryProcessorFilter extends Filter {
     private String addFilm(String args){
         return format("INSERT", "Film", args);
     }
+    private String rentItem(String args){
+        return format("INSERT", "RentedItem", args);
+    }
+    private String returnItem(String args){
+        return format("DELETE", "RentedItem", args);
+    }
+    private String queryRentedItems(String args){
+        return format("SELECT", "RentedItem", args);
+    }
+    private String queryRentedLateItems(String args){
+        return format("SELECT", "RentedItem", args);
+    }
     @Override
     public void execute() {
         while (true){
@@ -67,6 +79,22 @@ public class QueryProcessorFilter extends Filter {
                 }
                 case "queryFilm":{
                     sendData(queryFilm(args));
+                    break;
+                }
+                case "rentItem":{
+                    sendData(rentItem(args));
+                    break;
+                }
+                case "returnItem":{
+                    sendData(returnItem(args));
+                    break;
+                }
+                case "getClientRented":{
+                    sendData(queryRentedItems(args));
+                    break;
+                }
+                case "getClientLateRented":{
+                    sendData(queryRentedLateItems(args));
                     break;
                 }
             }

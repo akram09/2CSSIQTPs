@@ -7,6 +7,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -96,6 +97,50 @@ public class GuiFilter extends Filter {
             sendData(dataOut);
             clearAllText();
         });
+        controller.rentItem.setOnAction(event -> {
+            String itemId  = controller.rentItemId.getText();
+            String clientId  = controller.rentClientId.getText();
+            LocalDate dueDate = controller.rentDueDate.getValue();
+            List<String> data = new ArrayList<>();
+            data.add(itemId);
+            data.add(clientId);
+            data.add(dueDate.toString());
+            String dataOut = format("rentItem",data );
+            System.out.println(dataOut);
+            sendData(dataOut);
+            clearAllText();
+        });
+        controller.returnItem.setOnAction(event -> {
+            String itemId  = controller.returnItemId.getText();
+            String clientId  = controller.returnClientId.getText();
+            List<String> data = new ArrayList<>();
+            data.add(itemId);
+            data.add(clientId);
+            String dataOut = format("returnItem",data );
+            System.out.println(dataOut);
+            sendData(dataOut);
+            clearAllText();
+        });
+
+        controller.queryRentedClient.setOnAction(event -> {
+            String clientId  = controller.queryRentedClientId.getText();
+            List<String> data = new ArrayList<>();
+            data.add(clientId);
+            String dataOut = format("getClientRented",data );
+            System.out.println(dataOut);
+            sendData(dataOut);
+            clearAllText();
+        });
+        controller.queryRentedLateClientId.setOnAction(event -> {
+            String clientId  = controller.queryRentedLateClient.getText();
+            List<String> data = new ArrayList<>();
+            data.add(clientId);
+            String dataOut = format("getClientLateRented",data );
+            System.out.println(dataOut);
+            sendData(dataOut);
+            clearAllText();
+        });
+
     }
 
 
@@ -110,5 +155,11 @@ public class GuiFilter extends Filter {
         controller.stockItemTitle.clear();
         controller.clientName.clear();
         controller.clientBalance.clear();
+        controller.rentClientId.clear();
+        controller.rentItemId.clear();
+        controller.returnItemId.clear();
+        controller.returnClientId.clear();
+        controller.queryRentedClientId.clear();
+        controller.queryRentedLateClientId.clear();
     }
 }
