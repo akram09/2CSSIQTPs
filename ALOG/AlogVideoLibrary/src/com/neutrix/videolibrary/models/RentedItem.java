@@ -13,6 +13,14 @@ public class RentedItem {
         this.itemId = UUID.randomUUID().toString();
     }
 
+    @Override
+    public String toString() {
+        return "RentedItem{" +
+                "itemId='" + itemId + '\'' +
+                ", dueDate=" + dueDate +
+                '}';
+    }
+
     public RentedItem() {
     }
 

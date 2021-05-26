@@ -12,6 +12,17 @@ public class Film extends StockItem{
     }
 
     @Override
+    public String toString() {
+        return "Film{" +
+                "acteur='" + acteur + '\'' +
+                "rentalPrice=" + super.getRentalPrice() +
+                ", title='" + super.getTitle() + '\'' +
+                ", itemId='" + super.getItemId() + '\'' +
+                '}';
+    }
+
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

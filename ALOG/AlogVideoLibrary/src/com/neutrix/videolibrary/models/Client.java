@@ -3,7 +3,7 @@ package com.neutrix.videolibrary.models;
 import java.util.Objects;
 import java.util.UUID;
 
-public class Client extends Model {
+public class Client {
     private String customerId;
     private String name;
     private float accountBalance;
@@ -52,7 +52,11 @@ public class Client extends Model {
     }
 
     @Override
-    public Model parseFromArgs(String[] args) {
-        return new Client(args[0], Float.parseFloat(args[1]));
+    public String toString() {
+        return "Client{" +
+                "customerId='" + customerId + '\'' +
+                ", name='" + name + '\'' +
+                ", accountBalance=" + accountBalance +
+                '}';
     }
 }

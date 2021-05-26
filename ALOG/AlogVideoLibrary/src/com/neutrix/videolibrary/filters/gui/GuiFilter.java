@@ -38,11 +38,7 @@ public class GuiFilter extends Filter {
             while (true){
                 String input  = getData();
                 System.out.println("Calling From GUI received input '"+ input+"'");
-                Platform.runLater(new Runnable() {
-                    @Override public void run() {
-                        controller.result.setText(input);
-                    }
-                });
+                Platform.runLater(() -> controller.result.setText(input));
             }
         }).start();
 
@@ -64,6 +60,14 @@ public class GuiFilter extends Filter {
             data.add(title);
             data.add(String.valueOf(rentalPrice));
             String dataOut = format("addStockItem",data );
+            System.out.println(dataOut);
+            sendData(dataOut);
+        });
+        controller.afficherItemsTitle.setOnAction(event -> {
+            String title  = controller.stockItemQueryTitle.getText();
+            List<String> data = new ArrayList<>();
+            data.add(title);
+            String dataOut = format("queryStockItem",data );
             System.out.println(dataOut);
             sendData(dataOut);
         });

@@ -34,6 +34,13 @@ public class GuiController extends Application {
     @FXML
     public Button stockItemAjouter;
 
+    ///////////////   Afficher les articles par titre   ///////////
+    @FXML
+    public TextField stockItemQueryTitle;
+    @FXML
+    public Button afficherItemsTitle;
+
+
     @FXML
     public Text result;
 

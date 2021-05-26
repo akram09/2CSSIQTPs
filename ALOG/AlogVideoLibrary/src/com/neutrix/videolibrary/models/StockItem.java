@@ -17,19 +17,19 @@ public class StockItem  {
     public StockItem() {
     }
 
-    public StockItem(float rentalPrice, String title, String itemId) {
-        this.rentalPrice = rentalPrice;
-        this.title = title;
-        this.itemId = itemId;
-    }
-
     @Override
     public String toString() {
         return "StockItem{" +
                 "rentalPrice=" + rentalPrice +
                 ", title='" + title + '\'' +
-                ", itemId=" + itemId +
+                ", itemId='" + itemId + '\'' +
                 '}';
+    }
+
+    public StockItem(float rentalPrice, String title, String itemId) {
+        this.rentalPrice = rentalPrice;
+        this.title = title;
+        this.itemId = itemId;
     }
 
     @Override

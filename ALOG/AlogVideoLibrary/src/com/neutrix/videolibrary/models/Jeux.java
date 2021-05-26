@@ -19,6 +19,16 @@ public class Jeux  extends StockItem{
     }
 
     @Override
+    public String toString() {
+        return "Jeux{" +
+                "platform='" + platform + '\'' +
+                "rentalPrice=" + super.getRentalPrice() +
+                ", title='" + super.getTitle() + '\'' +
+                ", itemId='" + super.getItemId() + '\'' +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

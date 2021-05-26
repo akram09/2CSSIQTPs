@@ -19,6 +19,9 @@ public class QueryProcessorFilter extends Filter {
     private String addClient(String args){
         return format("INSERT", "Client", args);
     }
+    private String queryStockItems(String args){
+        return format("SELECT", "StockItem", args);
+    }
     private String addStockItem(String args){
         return format("INSERT", "StockItem", args);
     }
@@ -42,11 +45,16 @@ public class QueryProcessorFilter extends Filter {
             switch (method){
                 case "addClient":{
                     sendData(addClient(args));
+                    break;
                 }
                 case "addStockItem":{
                     sendData(addStockItem(args));
+                    break;
                 }
-
+                case "queryStockItem":{
+                    sendData(queryStockItems(args));
+                    break;
+                }
             }
         }
     }
