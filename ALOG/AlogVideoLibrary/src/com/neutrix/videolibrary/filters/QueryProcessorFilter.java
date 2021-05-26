@@ -25,6 +25,12 @@ public class QueryProcessorFilter extends Filter {
     private String addStockItem(String args){
         return format("INSERT", "StockItem", args);
     }
+    private String queryFilm(String args){
+        return format("SELECT", "Film", args);
+    }
+    private String addFilm(String args){
+        return format("INSERT", "Film", args);
+    }
     @Override
     public void execute() {
         while (true){
@@ -53,6 +59,14 @@ public class QueryProcessorFilter extends Filter {
                 }
                 case "queryStockItem":{
                     sendData(queryStockItems(args));
+                    break;
+                }
+                case "addFilm":{
+                    sendData(addFilm(args));
+                    break;
+                }
+                case "queryFilm":{
+                    sendData(queryFilm(args));
                     break;
                 }
             }

@@ -4,9 +4,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="309.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.neutrix.videolibrary.filters.gui.GuiController">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.neutrix.videolibrary.filters.gui.GuiController">
    <children>
-      <VBox>
+      <VBox prefHeight="456.0" prefWidth="666.0">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="38.0" prefWidth="600.0" text="Gestion VideoThéque" textAlignment="CENTER">
                <font>
@@ -21,32 +21,55 @@
                   <TextField fx:id="clientName" />
                   <Label text="Balance" />
                   <TextField fx:id="clientBalance" />
-                  <Button mnemonicParsing="false" text="Ajouter" fx:id="clientAjouter" />
+                  <Button fx:id="clientAjouter" mnemonicParsing="false" text="Ajouter" />
 
                </children>
             </HBox>
-            <Label prefHeight="38.0" prefWidth="600.0" text="Ajouter Item au stock"/>
+            <Label prefHeight="38.0" prefWidth="600.0" text="Ajouter Item au stock" />
             <HBox prefHeight="29.0" prefWidth="558.0">
                <children>
                   <Label text="title" />
                   <TextField fx:id="stockItemTitle" />
                   <Label text="RentalPrice" />
                   <TextField fx:id="rentalPrice" />
-                  <Button mnemonicParsing="false" text="Ajouter" fx:id="stockItemAjouter" />
+                  <Button fx:id="stockItemAjouter" mnemonicParsing="false" text="Ajouter" />
 
                </children>
             </HBox>
-            <Label prefHeight="38.0" prefWidth="600.0" text="Afficher les Items avec un Titre"/>
+            <Label prefHeight="38.0" prefWidth="600.0" text="Ajouter Film au stock" />
+            <HBox prefHeight="29.0" prefWidth="558.0">
+               <children>
+                  <Label prefHeight="16.0" prefWidth="42.0" text="title" />
+                  <TextField fx:id="filmTitle" prefHeight="26.0" prefWidth="107.0" />
+                  <Label prefHeight="16.0" prefWidth="83.0" text="RentalPrice" />
+                  <TextField fx:id="filmrentalPrice" prefHeight="26.0" prefWidth="100.0" />
+                  <Label prefHeight="16.0" prefWidth="80.0" text="Acteur" />
+                  <TextField fx:id="filmActeur" />
+                  <Button fx:id="filmAjouter" mnemonicParsing="false" prefHeight="26.0" prefWidth="69.0" text="Ajouter" />
+
+               </children>
+            </HBox>
+            <Label prefHeight="38.0" prefWidth="600.0" text="Afficher les Items avec un Titre" />
             <HBox prefHeight="29.0" prefWidth="558.0">
                <children>
                   <Label text="title" />
                   <TextField fx:id="stockItemQueryTitle" />
-                  <Button mnemonicParsing="false" text="Afficher" fx:id="afficherItemsTitle" />
+                  <Button fx:id="afficherItemsTitle" mnemonicParsing="false" text="Afficher" />
+
+               </children>
+            </HBox>
+            <Label prefHeight="38.0" prefWidth="600.0" text="Afficher les Filmes Par Acteur" />
+            <HBox prefHeight="29.0" prefWidth="558.0">
+               <children>
+                  <Label text="Actor" />
+                  <TextField fx:id="filmQueryActor" />
+                  <Button fx:id="afficherFilmsActeur" mnemonicParsing="false" text="Afficher" />
 
                </children>
             </HBox>
 
-            <Text fx:id="result"/>
+
+            <Text fx:id="result" />
 
 
          </children>

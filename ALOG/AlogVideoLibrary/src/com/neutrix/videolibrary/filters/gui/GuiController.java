@@ -34,11 +34,29 @@ public class GuiController extends Application {
     @FXML
     public Button stockItemAjouter;
 
+    /////////////    Ajouter Film  ///////////////
+    @FXML
+    public TextField filmTitle;
+
+    @FXML
+    public TextField filmrentalPrice;
+
+    @FXML
+    public TextField filmActeur;
+
+    @FXML
+    public Button filmAjouter;
+
     ///////////////   Afficher les articles par titre   ///////////
     @FXML
     public TextField stockItemQueryTitle;
     @FXML
     public Button afficherItemsTitle;
+    ///////////////   Afficher les filmes par acteur   ///////////
+    @FXML
+    public TextField filmQueryActor;
+    @FXML
+    public Button afficherFilmsActeur;
 
 
     @FXML

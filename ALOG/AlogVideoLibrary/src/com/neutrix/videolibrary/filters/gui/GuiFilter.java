@@ -52,6 +52,7 @@ public class GuiFilter extends Filter {
             String dataOut = format("addClient",data );
             System.out.println(dataOut);
             sendData(dataOut);
+            clearAllText();
         });
         controller.stockItemAjouter.setOnAction(event -> {
             String title  = controller.stockItemTitle.getText();
@@ -62,6 +63,20 @@ public class GuiFilter extends Filter {
             String dataOut = format("addStockItem",data );
             System.out.println(dataOut);
             sendData(dataOut);
+            clearAllText();
+        });
+        controller.filmAjouter.setOnAction(event -> {
+            String title  = controller.filmTitle.getText();
+            String actor  = controller.filmActeur.getText();
+            float rentalPrice  = Float.parseFloat(controller.filmrentalPrice.getText());
+            List<String> data = new ArrayList<>();
+            data.add(title);
+            data.add(String.valueOf(rentalPrice));
+            data.add(actor);
+            String dataOut = format("addFilm",data );
+            System.out.println(dataOut);
+            sendData(dataOut);
+            clearAllText();
         });
         controller.afficherItemsTitle.setOnAction(event -> {
             String title  = controller.stockItemQueryTitle.getText();
@@ -70,6 +85,30 @@ public class GuiFilter extends Filter {
             String dataOut = format("queryStockItem",data );
             System.out.println(dataOut);
             sendData(dataOut);
+            clearAllText();
         });
+        controller.afficherFilmsActeur.setOnAction(event -> {
+            String title  = controller.filmQueryActor.getText();
+            List<String> data = new ArrayList<>();
+            data.add(title);
+            String dataOut = format("queryFilm",data );
+            System.out.println(dataOut);
+            sendData(dataOut);
+            clearAllText();
+        });
+    }
+
+
+
+    public void clearAllText(){
+        controller.stockItemQueryTitle.clear();
+        controller.filmQueryActor.clear();
+        controller.filmActeur.clear();
+        controller.filmrentalPrice.clear();
+        controller.filmTitle.clear();
+        controller.rentalPrice.clear();
+        controller.stockItemTitle.clear();
+        controller.clientName.clear();
+        controller.clientBalance.clear();
     }
 }

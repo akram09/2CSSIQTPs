@@ -11,6 +11,11 @@ public class Film extends StockItem{
         this.acteur = acteur;
     }
 
+    public Film(float rentalPrice, String title, String acteur) {
+        super(rentalPrice, title);
+        this.acteur = acteur;
+    }
+
     @Override
     public String toString() {
         return "Film{" +
