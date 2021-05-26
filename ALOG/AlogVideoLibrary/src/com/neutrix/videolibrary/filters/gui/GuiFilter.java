@@ -47,18 +47,25 @@ public class GuiFilter extends Filter {
         }).start();
 
 
-        controller.clientAjouter.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                String name  = controller.clientName.getText();
-                float balance  = Float.parseFloat(controller.clientBalance.getText());
-                List<String> data = new ArrayList<>();
-                data.add(name);
-                data.add(String.valueOf(balance));
-                String dataOut = format("addClient",data );
-                System.out.println(dataOut);
-                sendData(dataOut);
-            }
+        controller.clientAjouter.setOnAction(event -> {
+            String name  = controller.clientName.getText();
+            float balance  = Float.parseFloat(controller.clientBalance.getText());
+            List<String> data = new ArrayList<>();
+            data.add(name);
+            data.add(String.valueOf(balance));
+            String dataOut = format("addClient",data );
+            System.out.println(dataOut);
+            sendData(dataOut);
+        });
+        controller.stockItemAjouter.setOnAction(event -> {
+            String title  = controller.stockItemTitle.getText();
+            float rentalPrice  = Float.parseFloat(controller.rentalPrice.getText());
+            List<String> data = new ArrayList<>();
+            data.add(title);
+            data.add(String.valueOf(rentalPrice));
+            String dataOut = format("addStockItem",data );
+            System.out.println(dataOut);
+            sendData(dataOut);
         });
     }
 }

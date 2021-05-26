@@ -19,6 +19,9 @@ public class QueryProcessorFilter extends Filter {
     private String addClient(String args){
         return format("INSERT", "Client", args);
     }
+    private String addStockItem(String args){
+        return format("INSERT", "StockItem", args);
+    }
     @Override
     public void execute() {
         while (true){
@@ -38,8 +41,12 @@ public class QueryProcessorFilter extends Filter {
 
             switch (method){
                 case "addClient":{
-                    _dataOUTPipe.dataIN(addClient(args));
+                    sendData(addClient(args));
                 }
+                case "addStockItem":{
+                    sendData(addStockItem(args));
+                }
+
             }
         }
     }

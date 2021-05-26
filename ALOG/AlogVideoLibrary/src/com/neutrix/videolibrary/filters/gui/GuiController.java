@@ -23,6 +23,17 @@ public class GuiController extends Application {
     @FXML
     public Button clientAjouter;
 
+
+    /////////////    Ajouter Item Stock  ///////////////
+    @FXML
+    public TextField stockItemTitle;
+
+    @FXML
+    public TextField rentalPrice;
+
+    @FXML
+    public Button stockItemAjouter;
+
     @FXML
     public Text result;
 

@@ -25,6 +25,17 @@
 
                </children>
             </HBox>
+            <Label prefHeight="38.0" prefWidth="600.0" text="Ajouter Item au stock"/>
+            <HBox prefHeight="29.0" prefWidth="558.0">
+               <children>
+                  <Label text="title" />
+                  <TextField fx:id="stockItemTitle" />
+                  <Label text="RentalPrice" />
+                  <TextField fx:id="rentalPrice" />
+                  <Button mnemonicParsing="false" text="Ajouter" fx:id="stockItemAjouter" />
+
+               </children>
+            </HBox>
 
             <Text fx:id="result"/>
 
