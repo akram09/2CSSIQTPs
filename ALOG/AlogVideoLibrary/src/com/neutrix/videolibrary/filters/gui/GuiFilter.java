@@ -3,6 +3,7 @@ package com.neutrix.videolibrary.filters.gui;
 import com.neutrix.videolibrary.base.Filter;
 import com.neutrix.videolibrary.base.Pipe;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -33,6 +34,19 @@ public class GuiFilter extends Filter {
     public void execute() {
         new Thread(() -> Application.launch(GuiController.class)).start();
         controller = GuiController.waitForLaunch();
+        new Thread(() -> {
+            while (true){
+                String input  = getData();
+                System.out.println("Calling From GUI received input '"+ input+"'");
+                Platform.runLater(new Runnable() {
+                    @Override public void run() {
+                        controller.result.setText(input);
+                    }
+                });
+            }
+        }).start();
+
+
         controller.clientAjouter.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -41,7 +55,9 @@ public class GuiFilter extends Filter {
                 List<String> data = new ArrayList<>();
                 data.add(name);
                 data.add(String.valueOf(balance));
-                _dataOUTPipe.dataIN(format("addClient",data ));
+                String dataOut = format("addClient",data );
+                System.out.println(dataOut);
+                sendData(dataOut);
             }
         });
     }

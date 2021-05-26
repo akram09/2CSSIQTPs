@@ -22,12 +22,20 @@ public class QueryProcessorFilter extends Filter {
     @Override
     public void execute() {
         while (true){
-            String[] data = _dataINPipe.dataOUT().split(" ");
+            String input  = _dataINPipe.dataOUT();
+            String[] data = input.split(";");
+            for (String d:
+                 data) {
+                System.out.println(d);
+            }
             String method = data[0];
             String args = null;
             if (data.length>1){
                 args = data[1];
             }
+            System.out.println("Calling From Query Processor received input '"+ input+"'");
+            System.out.println("Detected method '"+ method+ "' And arguments passed: " + args);
+
             switch (method){
                 case "addClient":{
                     _dataOUTPipe.dataIN(addClient(args));

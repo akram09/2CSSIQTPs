@@ -40,18 +40,24 @@ public class TransactionProcessorFilter extends Filter {
     @Override
     public void execute() {
         while (true){
-            String[] data  = _dataINPipe.dataOUT().split(" ");
+            String input  = getData();
+            System.out.println("Calling From Transaction Processor received input '"+ input+"'");
+            String[] data  = input.split(";");
             String action = data[0];
             String model = data[1];
             String args = null;
             if (data.length>2){
-                args = data[3];
+                args = data[2];
             }
+            System.out.println("Detected Input Action: '"+action+"' on Model: '"+model+"' with Args: "+args);
             switch (model){
                 case "Client":{
                     String result = applyClient(action,args);
+                    System.out.println("Result of the action is: "+result);
                     if (result!=null){
                         _dataOUTPipe.dataIN(result);
+                    }else{
+                        _dataOUTPipe.dataIN("Operation SUCCEEDED");
                     }
                 }
             }

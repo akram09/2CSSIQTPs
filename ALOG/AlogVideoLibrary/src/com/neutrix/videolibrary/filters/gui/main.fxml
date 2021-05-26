@@ -21,9 +21,12 @@
                   <TextField fx:id="clientName" />
                   <Label text="Balance" />
                   <TextField fx:id="clientBalance" />
-                  <Button mnemonicParsing="false" text="Ajouter" fx:id="ajouterClient" />
+                  <Button mnemonicParsing="false" text="Ajouter" fx:id="clientAjouter" />
+
                </children>
             </HBox>
+
+            <Text fx:id="result"/>
 
 
          </children>
