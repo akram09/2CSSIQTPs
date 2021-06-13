@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.neutrix.akram.tlili.Main">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.neutrix.akram.tlili.presentation.MainController">
     <children>
         <VBox prefHeight="456.0" prefWidth="822.0" spacing="4">
             <children>
@@ -24,7 +24,9 @@
                         <TextField fx:id="clientName" />
                         <Label text="Balance" />
                         <TextField fx:id="clientBalance" />
-                        <Button fx:id="clientAjouter" mnemonicParsing="false" text="Ajouter" />
+                        <Button fx:id="clientAjouter"
+                                onAction="#addClientClicked"
+                                mnemonicParsing="false" text="Ajouter" />
 
                     </children>
                 </HBox>
@@ -39,7 +41,9 @@
                         <TextField fx:id="stockItemTitle" />
                         <Label text="RentalPrice" />
                         <TextField fx:id="rentalPrice" />
-                        <Button fx:id="stockItemAjouter" mnemonicParsing="false" text="Ajouter" />
+                        <Button fx:id="stockItemAjouter"
+                                onAction="#addStockItemClicked"
+                                mnemonicParsing="false" text="Ajouter" />
 
                     </children>
                 </HBox>
@@ -101,7 +105,9 @@
                         <DatePicker fx:id="rentDueDate"/>
                         <Label text="Item id" />
                         <TextField fx:id="rentItemId" />
-                        <Button fx:id="rentItem" mnemonicParsing="false" text="Louer" />
+                        <Button fx:id="rentItem"
+                                onAction="#rentStockItem"
+                                mnemonicParsing="false" text="Louer" />
 
                     </children>
                 </HBox>

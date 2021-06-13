@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tables>
+    <table-entry name="CLIENT" col-data="id varchar(200) primary key,name varchar(200),balance real"/>
+    <table-entry name="STOCK_ITEM" col-data="id varchar(200) primary key,title varchar(200),rentPrice real"/>
+    <table-entry name="MOVIE" col-data="id varchar(200) primary key,stockId varchar(200), FOREIGN KEY(stockId) REFERENCES STOCK_ITEM(id)"/>
+    <table-entry name="RENTED_ITEM" col-data="id varchar(200) primary key,itemId varchar(200),clientId varchar(200),dueDate varchar(255), FOREIGN KEY(itemId) REFERENCES STOCK_ITEM(id), FOREIGN KEY(clientId) REFERENCES CLIENT(id)"/>
+</tables>

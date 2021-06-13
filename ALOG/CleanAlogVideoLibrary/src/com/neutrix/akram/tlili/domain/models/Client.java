@@ -14,6 +14,12 @@ public class Client {
         this.customerId = UUID.randomUUID().toString();
     }
 
+    public Client(String customerId, String name, float accountBalance) {
+        this.customerId = customerId;
+        this.name = name;
+        this.accountBalance = accountBalance;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

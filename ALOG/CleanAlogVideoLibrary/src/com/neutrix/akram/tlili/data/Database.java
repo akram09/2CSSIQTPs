@@ -58,20 +58,7 @@ public final  class Database {
         }
     }
 
-    public ResultSet execQuery(String query) {
-        ResultSet result;
-        try {
-            stmt = conn.createStatement();
-            result = stmt.executeQuery(query);
-        }
-        catch (SQLException ex) {
-            System.out.println("Exception at execQuery:dataHandler" + ex.getLocalizedMessage());
-            return null;
-        }
-        finally {
-        }
-        return result;
-    }
+
 
 
 

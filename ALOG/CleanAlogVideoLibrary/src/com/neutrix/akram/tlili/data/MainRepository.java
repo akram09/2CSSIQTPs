@@ -20,12 +20,12 @@ public class MainRepository implements IMainRepository {
 
     @Override
     public Client addClient(Client client) {
-        return null;
+        return transactionProcessor.createClient(client);
     }
 
     @Override
     public StockItem addStockItem(StockItem item) {
-        return null;
+        return transactionProcessor.createStockItem(item);
     }
 
     @Override
@@ -44,23 +44,23 @@ public class MainRepository implements IMainRepository {
     }
 
     @Override
-    public Client getClientById(String clientId) {
-        return null;
+    public List<Client> getClientById(String clientId) {
+        return queryProcessor.fetchClientsByID(clientId);
     }
 
     @Override
-    public StockItem getStockItemById(String itemId) {
-        return null;
+    public List<StockItem> getStockItemById(String itemId) {
+        return queryProcessor.fetchItemByID(itemId);
     }
 
     @Override
     public void updateClient(Client client) {
-
+        transactionProcessor.updateClient(client);
     }
 
     @Override
     public void addRentedItem(RentedItem rentedItem) {
-
+        transactionProcessor.createRentedItem(rentedItem);
     }
 
     @Override

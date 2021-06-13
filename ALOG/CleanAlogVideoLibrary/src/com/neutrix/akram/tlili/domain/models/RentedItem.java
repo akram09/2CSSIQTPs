@@ -2,6 +2,7 @@ package com.neutrix.akram.tlili.domain.models;
 
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.UUID;
 
 public class RentedItem {
     private String rentedItemId;
@@ -20,6 +21,15 @@ public class RentedItem {
         this.dueDate = dueDate;
         this.clientId = clientId;
         this.itemId = itemId;
+        this.rentedItemId = UUID.randomUUID().toString();
+    }
+
+    public String getRentedItemId() {
+        return rentedItemId;
+    }
+
+    public void setRentedItemId(String rentedItemId) {
+        this.rentedItemId = rentedItemId;
     }
 
     public String getClientId() {

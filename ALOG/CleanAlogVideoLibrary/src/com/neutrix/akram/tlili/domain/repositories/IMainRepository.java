@@ -13,8 +13,8 @@ public interface IMainRepository {
     Film addMovie(Film movie);
     List<StockItem> getStockItems(String title);
     List<Film> getMovieByActor(String actor);
-    Client getClientById(String clientId);
-    StockItem getStockItemById(String itemId);
+    List<Client> getClientById(String clientId);
+    List<StockItem> getStockItemById(String itemId);
     void updateClient(Client client);
     void addRentedItem(RentedItem rentedItem);
     void removeRentedItemByClientItemId(String clientId, String itemId);
